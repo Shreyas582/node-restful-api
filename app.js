@@ -8,14 +8,10 @@ const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require("./api/routes/user");
 
-mongoose.connect(
-  "mongodb+srv://ce_shreyas:" +
-    process.env.MONGO_ATLAS_PW +
-    "@nodejs-restful-api.qpk3uza.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.MONGO_ATLAS_URI);
 
 app.use(morgan("dev"));
-app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
